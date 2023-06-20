@@ -1,6 +1,6 @@
 const model = require('../models/model');
 
-// POST: http://localhost:4000/api/categories
+// POST: https://moneymanager-acen.onrender.com/api/categories
 async function create_Categories(req, res) {
   const Create = new model.Categories({
     type: req.body.type,
@@ -15,7 +15,7 @@ async function create_Categories(req, res) {
   }
 }
 
-// GET: http://localhost:4000/api/categories
+// GET: https://moneymanager-acen.onrender.com/api/categories
 async function get_Categories(req, res) {
   try {
     const data = await model.Categories.find({});
@@ -26,7 +26,7 @@ async function get_Categories(req, res) {
   }
 }
 
-// POST: http://localhost:4000/api/transaction
+// POST:https://moneymanager-acen.onrender.com/api/transaction
 async function create_Transaction(req, res) {
   if (!req.body) return res.status(400).json("Post HTTP Data not Provided");
   const { name, type, amount } = req.body;
@@ -46,7 +46,7 @@ async function create_Transaction(req, res) {
   }
 }
 
-// GET: http://localhost:4000/api/transaction
+// GET: https://moneymanager-acen.onrender.com/api/transaction
 async function get_Transaction(req, res) {
   try {
     const data = await model.Transaction.find({});
@@ -56,7 +56,7 @@ async function get_Transaction(req, res) {
   }
 }
 
-// DELETE: http://localhost:4000/api/transaction/:_id
+// DELETE: https://moneymanager-acen.onrender.com/api/transaction/:_id
 const delete_Transaction = async (req, res) => {
   const _id = req.params._id;
   try {
@@ -70,7 +70,7 @@ const delete_Transaction = async (req, res) => {
   }
 };
 
-// GET: http://localhost:4000/api/labels
+// GET:https://moneymanager-acen.onrender.com/api/labels
 async function get_Labels(req, res) {
   try {
     const result = await model.Transaction.aggregate([
