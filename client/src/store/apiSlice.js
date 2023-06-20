@@ -11,7 +11,7 @@ export const apiSlice = createApi({
       providesTags: ["categories"],
     }),
 
-    // get labels
+    // get labels https://moneymanager-acen.onrender.com/api/labels
     getLabels: builder.query({
       query: () => "api/labels",
       providesTags: ["transaction"],

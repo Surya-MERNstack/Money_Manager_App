@@ -16,7 +16,7 @@ const con = require('./db/connection.js');
 app.use(require('./routes/route'));
 
 app.get('/' ,(req ,res) =>{
-     res.send('<h1>Hello World</h1>')
+     res.send('<h2 style ="color : red">LINKS</h2><h3 style ="color : #1e90ff">https://moneymanager-acen.onrender.com/api/labels</h3>  <h3 style ="color : #1e90ff">https://moneymanager-acen.onrender.com/api/transaction</h3>  <h3 style ="color : #1e90ff">https://moneymanager-acen.onrender.com/api/categories</h3> </> ')
 })
 
 con.then(db => {
