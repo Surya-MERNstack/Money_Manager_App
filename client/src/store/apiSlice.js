@@ -1,30 +1,30 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const baseURI = 'https://moneymanager-acen.onrender.com';
+const baseURI = "https://moneymanager-acen.onrender.com";
 
 export const apiSlice = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: baseURI }),
   endpoints: (builder) => ({
     // get categories https://moneymanager-acen.onrender.com/api/categories
     getCategories: builder.query({
-      query: () => '/api/categories',
-      providesTags: ['categories'],
+      query: () => "/api/categories",
+      providesTags: ["categories"],
     }),
 
     // get labels
     getLabels: builder.query({
-      query: () => '/api/labels',
-      providesTags: ['transaction'],
+      query: () => "/api/labels",
+      providesTags: ["transaction"],
     }),
 
     // add new Transaction https://moneymanager-acen.onrender.com/api/transaction
     addTransaction: builder.mutation({
       query: (initialTransaction) => ({
-        url: '/api/transaction',
-        method: 'POST',
+        url: "/api/transaction",
+        method: "POST",
         body: initialTransaction,
       }),
-      invalidatesTags: ['transaction'],
+      invalidatesTags: ["transaction"],
     }),
 
     // delete record
@@ -32,15 +32,15 @@ export const apiSlice = createApi({
     deleteTransaction: builder.mutation({
       query: (recordId) => ({
         url: `/api/transaction/${recordId}`,
-        method: 'DELETE',
+        method: "DELETE",
         body: recordId,
       }),
-      invalidatesTags: ['transaction'],
+      invalidatesTags: ["transaction"],
     }),
   }),
 });
 
 // Export the useGetLabelsQuery hook
-export const { useGetLabelsQuery } = apiSlice; 
+export const { useGetLabelsQuery } = apiSlice;
 
 export default apiSlice;
