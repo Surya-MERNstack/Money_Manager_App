@@ -1,11 +1,11 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const baseURI = 'http://localhost:4000';
+const baseURI = 'https://moneymanager-acen.onrender.com';
 
 export const apiSlice = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: baseURI }),
   endpoints: (builder) => ({
-    // get categories http://localhost:4000/api/categories
+    // get categories https://moneymanager-acen.onrender.com/api/categories
     getCategories: builder.query({
       query: () => '/api/categories',
       providesTags: ['categories'],
@@ -17,7 +17,7 @@ export const apiSlice = createApi({
       providesTags: ['transaction'],
     }),
 
-    // add new Transaction http://localhost:4000/api/transaction
+    // add new Transaction https://moneymanager-acen.onrender.com/api/transaction
     addTransaction: builder.mutation({
       query: (initialTransaction) => ({
         url: '/api/transaction',
@@ -28,6 +28,7 @@ export const apiSlice = createApi({
     }),
 
     // delete record
+
     deleteTransaction: builder.mutation({
       query: (recordId) => ({
         url: `/api/transaction/${recordId}`,
@@ -39,6 +40,7 @@ export const apiSlice = createApi({
   }),
 });
 
-export const { useGetLabelsQuery } = apiSlice; // Export the useGetLabelsQuery hook
+// Export the useGetLabelsQuery hook
+export const { useGetLabelsQuery } = apiSlice; 
 
 export default apiSlice;
