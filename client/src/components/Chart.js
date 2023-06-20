@@ -15,7 +15,7 @@ const Charts = () => {
   if (isFetching) {
     graphData = <div>Fetching</div>;
   } else if (isSuccess) {
-    graphData = <Doughnut {...chart_Data(data)}></Doughnut>;
+    graphData = <Doughnut {...chart_Data(data || {})} />;
   } else if (isError) {
     graphData = <div>Error</div>;
   }
@@ -42,8 +42,7 @@ const Charts = () => {
     <div className='flex justify-content max-w-xs mx-auto'>
       <div className='item'>
         <div className='chart relative'>
-          {/* <Doughnut {...config}></Doughnut> */}
-          {graphData}
+          {graphData && <Doughnut {...config} />}
           <h3 className='mb-4 font-bold title'>
             Total
             <span className='block text-3xl text-emerald-400'>${getTotal(data) ?? 0}</span>
@@ -52,7 +51,7 @@ const Charts = () => {
 
         <div className='flex flex-col py-10 gap-10'>
           {/* labels */}
-          <Labels></Labels>
+          <Labels />
         </div>
       </div>
     </div>
