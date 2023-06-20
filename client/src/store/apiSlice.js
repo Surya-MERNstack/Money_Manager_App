@@ -1,9 +1,9 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const baseURI = "https://moneymanager-acen.onrender.com/";
+ 
 
 export const apiSlice = createApi({
-  baseQuery: fetchBaseQuery({ baseUrl: baseURI }),
+  baseQuery: fetchBaseQuery({ baseUrl: "https://moneymanager-acen.onrender.com/" }),
   endpoints: (builder) => ({
     // get categories https://moneymanager-acen.onrender.com/api/categories
     getCategories: builder.query({
